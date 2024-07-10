@@ -1,0 +1,44 @@
+{
+  "name": "voice-lesson-app",
+  "version": "1.0.0",
+  "description": "Built by Dearie & Michael",
+  "main": "server.js",
+  "dependencies": {
+    "@prisma/client": "^4.16.2",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "joi": "^17.10.2",
+    "jsonwebtoken": "^9.0.0",
+    "nodemailer": "^6.9.5",
+    "otp-generator": "^4.0.1",
+    "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22",
+    "prisma": "^4.12.0"
+  },
+  "prisma": {
+    "schema": "./prisma/schema.prisma"
+  },
+  "scripts": {
+    "test": "",
+    "dbPush": "prisma db push",
+    "dev": "nodemon ./src/server.js",
+    "prismaGenerate": "prisma generate dev",
+    "prismaMigrate": "prisma migrate dev",
+    "start": "npm run prismaGenerate && node ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dearie-de-cybek/VoiceLessonsApp.git"
+  },
+  "author": "D&M",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dearie-de-cybek/VoiceLessonsApp/issues"
+  },
+  "homepage": "https://github.com/Dearie-de-cybek/VoiceLessonsApp#readme"
+}
