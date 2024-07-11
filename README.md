@@ -7,7 +7,7 @@
 Create a .env file inside the root of your application and include the following content:
 
 ```bash
-DATABASE_URL='postgresql://postgres:YOURPASSWORD@localhost:5432/voice_lesson_app?schema=public'
+DATABASE_URL='mysql://root:@localhost:<add_your_port || 3306>/voice_lesson_app'
 
 NODE_ENV="development"
 
