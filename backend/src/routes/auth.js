@@ -11,7 +11,6 @@ class AuthRoute {
   }
 
   initializeRoutes() {
-    // test endpoint
     this.router.post(
       `${this.path}/user/signup`,
       useCatchErrors(this.authController.userSignup.bind(this.authController))
