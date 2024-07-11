@@ -8,3 +8,89 @@ datasource db {
     // shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
     relationMode = "prisma"
 }
+
+model PasswordResetTokens {
+    id               Int           @id @default(autoincrement())
+    email            String
+    token            String @unique
+}
+
+model EmailVerificationTokens {
+    id               Int           @id @default(autoincrement())
+    token            String
+}
+
+model User {
+    id               Int           @id @default(autoincrement())
+    name             String
+    email            String        @unique
+    phone            String        @unique
+    email_verified   Boolean       @default(false)
+    password         String
+    progress         String        @default("0")
+    coin             String        @default("0")
+    score            String        @default("0")
+    account_type     String        @default("user")
+    assignment_answer              Assignment_Answer[]
+    quiz_answer                    Quiz_Answer[]
+}
+
+model Course {
+    id               Int           @id @default(autoincrement())
+    title            String
+    description      String
+    audio            String
+    video            String
+    content          String
+    assignment                     Assignment[]
+    quiz                           Quiz[]
+}
+
+model Assignment {
+    id               Int           @id @default(autoincrement())
+    courseId         Int
+    question         String
+    course           Course        @relation(fields: [courseId], references: [id])
+    assignment_answer              Assignment_Answer[]
+}
+
+model Assignment_Answer {
+    id               Int           @id @default(autoincrement())
+    userId           Int
+    assignmentId     Int
+    answer           String
+    file             String
+    feedback         String
+    user             User          @relation(fields: [userId], references: [id])
+    assignment       Assignment    @relation(fields: [assignmentId], references: [id])
+}
+
+model Quiz {
+    id               Int           @id @default(autoincrement())
+    courseId         Int
+    quiz             String
+    course           Course        @relation(fields: [courseId], references: [id])
+    quiz_option                    Quiz_Option[]
+    quiz_answer                    Quiz_Answer[]
+}
+
+model Quiz_Option {
+    id               Int           @id @default(autoincrement())
+    quizId           Int
+    option           String
+    status           String
+    quiz             Quiz        @relation(fields: [quizId], references: [id])
+    quiz_answer                  Quiz_Answer[]
+}
+
+model Quiz_Answer {
+    id               Int           @id @default(autoincrement())
+    userId           Int
+    quizId           Int
+    quiz_optionId    Int
+    user             User          @relation(fields: [userId], references: [id])
+    quiz             Quiz          @relation(fields: [quizId], references: [id])
+    quiz_option      Quiz_Option   @relation(fields: [quiz_optionId], references: [id])
+        
+}
+
