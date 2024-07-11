@@ -24,6 +24,9 @@ class AuthRoute {
     this.router.post(
       `${this.path}/api/register`, auth.register
     );
+    this.router.post(
+      `${this.path}/api/login`, auth.login
+    );
 
   }
 }
