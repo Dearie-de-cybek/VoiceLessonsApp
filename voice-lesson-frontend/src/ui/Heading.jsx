@@ -25,7 +25,6 @@ css`
 `}
     font-size: 20px;
     font-weight: 600;
-    background-color: yellow;
 `
 
 export default Heading;
