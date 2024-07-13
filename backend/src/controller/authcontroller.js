@@ -1,13 +1,22 @@
 const bcrypt = require("bcryptjs");
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 const register = async (req, res) => {
-  const { name, email, phone, password } = req.body;
+  const { name, email, phone, password, confirmpassword } = req.body;
 
-  if (!name || !email || !phone || !password) {
+  if (!name || !email || !phone || !password || !confirmpassword) {
     return res.status(400).json({ error: "All fields are required" });
+  }
+
+  if (password !== confirmpassword) {
+    return res
+      .status(400)
+      .json({
+        statusCode: 400,
+        message: "Passwords do not match",
+      });
   }
 
   try {
@@ -37,9 +46,7 @@ const login = async (req, res) => {
 
   if (!email || !password) {
     return res.status(400).json({
-      errorStatus: true,
       statusCode: 400,
-      code: "--api/validation-error",
       message: "Email and password are required",
     });
   }
@@ -81,4 +88,64 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = { register, login };
+const updateProfile = async (req, res) => {
+  const { userId } = req.params;
+  const { name, email, phone, password, confirmpassword } = req.body;
+
+  if (!userId) {
+    return res.status(400).json({
+      statusCode: 400,
+      message: "User ID is required",
+    });
+  }
+
+  if (password !== confirmpassword) {
+    return res
+      .status(400)
+      .json({
+        statusCode: 400,
+        message: "Passwords do not match",
+      });
+  }
+
+  try {
+    const existingUser = await prisma.user.findUnique({
+      where: { id: parseInt(userId) },
+    });
+
+    if (!existingUser) {
+      return res.status(404).json({
+        statusCode: 404,
+        message: "User not found",
+      });
+    }
+
+    const updatedData = {
+      name: name || existingUser.name,
+      email: email || existingUser.email,
+      phone: phone || existingUser.phone,
+    };
+
+    if (password) {
+      const hashedPassword = await bcrypt.hash(password, 10);
+      updatedData.password = hashedPassword;
+    }
+
+    const updatedUser = await prisma.user.update({
+      where: { id: parseInt(userId) },
+      data: updatedData,
+    });
+
+    res
+      .status(200)
+      .json({ message: "Profile updated successfully", user: updatedUser });
+  } catch (error) {
+    res.status(500).json({
+      statusCode: 500,
+      message: "Something went wrong",
+      details: { stacks: error.message },
+    });
+  }
+};
+
+module.exports = { register, login, updateProfile };

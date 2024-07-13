@@ -27,6 +27,9 @@ class AuthRoute {
     this.router.post(
       `${this.path}/api/login`, auth.login
     );
+    this.router.post(
+      `${this.path}/api/update/:userId`, auth.updateProfile
+    );
 
   }
 }
