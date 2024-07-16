@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Tracker from "../../components/Tracker";
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Card = styled.div`
@@ -30,20 +29,10 @@ const Tutor = styled.span`
   color: var(--color-ash-600);
 `;
 
-const Label = styled.span`
-  font-size: 1rem;
-  font-weight: 600;
-  align-self: flex-end;
-  color: var(--color-ash-600);
-`;
+
 
 function CoursesCard({ course }) {
   const navigate = useNavigate();
-  const [rating, setRating] = useState();
-
-  useEffect(() => {
-    course.rating = rating;
-  }, [course, rating]);
 
   return (
     <Card className="w-full h-auto sm:w-[25rem] xl:w-[36rem] overflow-hidden">
@@ -67,12 +56,6 @@ function CoursesCard({ course }) {
             </span>
           </div>
         </Tracker>
-        <div className="self-end flex flex-col">
-          <StarRating size={15} onSetRating={setRating}>
-            <StarRating.Stars />
-          </StarRating>
-          <Label>your rating</Label>
-        </div>
       </div>
     </Card>
   );
