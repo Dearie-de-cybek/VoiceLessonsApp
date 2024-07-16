@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import PropTypes from 'prop-types';
 
 const Card = styled.div`
-  background-color: var(--color-white);
+  background-color: var(--color-brand-50);
   border-radius: var(--border-radius-tiny);
 
   @media (max-width: 640px) {
