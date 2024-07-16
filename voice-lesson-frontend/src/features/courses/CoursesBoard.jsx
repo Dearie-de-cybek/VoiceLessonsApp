@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import CoursesCard from "./CourseCard";
+import PropTypes from 'prop-types';
 
 const StyledCourses = styled.div`
   background-color: transparent;
@@ -20,5 +21,13 @@ function CoursesBoard({ courses }) {
     </StyledCourses>
   );
 }
+
+CoursesBoard.propTypes = {
+  courses: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+};
 
 export default CoursesBoard;
