@@ -1,5 +1,6 @@
 import { createContext, useContext } from "react";
 import styled from "styled-components";
+import PropTypes from 'prop-types';
 
 const Track = styled.span`
   width: 100%;
@@ -52,5 +53,11 @@ function Progress() {
 
 Tracker.Bar = Bar;
 Tracker.Progress = Progress;
+
+Tracker.propTypes = {
+    currtrack: PropTypes.object.isRequired,  // Adjust the type according to the expected type of currtrack
+    height: PropTypes.number.isRequired,     // Adjust the type if height is not a number
+    children: PropTypes.node.isRequired,
+  };
 
 export default Tracker;
