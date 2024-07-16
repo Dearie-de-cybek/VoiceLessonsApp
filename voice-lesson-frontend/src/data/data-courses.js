@@ -1,13 +1,13 @@
-import prsp from "../../assets/imgs/precision-speed.png";
-import authorImg from "../../assets/imgs/avatar-1.png";
-import bitcoin from "../../assets/imgs/bitcoin.png";
+import mh from "../../public/mh.png";
+import authorImg from "../../public/avatar-1.png";
+import ir from "../../public/ir.png";
 
 export const courses = [
   {
     id: 0,
     title: "React",
     tutor: "Jonas Schedtmann",
-    img: prsp,
+    img: mh,
     alt: "React course",
     rating: 4.5,
     completionRate: 60,
@@ -16,7 +16,7 @@ export const courses = [
     id: 1,
     title: "React",
     tutor: "Jonas Schedtmann",
-    img: prsp,
+    img: mh,
     alt: "React course",
     rating: 4.5,
     completionRate: 100,
@@ -25,7 +25,7 @@ export const courses = [
     id: 2,
     title: "React",
     tutor: "Jonas Schedtmann",
-    img: prsp,
+    img: mh,
     alt: "React course",
     rating: 4.5,
     completionRate: 32,
@@ -34,7 +34,7 @@ export const courses = [
     id: 3,
     title: "React",
     tutor: "Jonas Schedtmann",
-    img: prsp,
+    img: mh,
     alt: "React course",
     rating: 4.5,
     completionRate: 81,
@@ -43,7 +43,7 @@ export const courses = [
     id: 4,
     title: "React",
     tutor: "Jonas Schedtmann",
-    img: prsp,
+    img: mh,
     alt: "React course",
     rating: 4.5,
     completionRate: 54,
@@ -52,7 +52,7 @@ export const courses = [
     id: 5,
     title: "React",
     tutor: "Jonas Schedtmann",
-    img: prsp,
+    img: mh,
     alt: "React course",
     rating: 4.5,
     completionRate: 99,
@@ -64,8 +64,8 @@ export const course = [
     id: 0,
     title: "Business Management in Cryptocurrency",
     duration: 12,
-    alt: "bitcoin",
-    img: bitcoin,
+    alt: "ir",
+    img: ir,
     author: {
       name: "Jonas Schedtmann",
       biography:
@@ -77,8 +77,8 @@ export const course = [
         id: 0,
         title: "Business Management in Cryptocurrency",
         duration: 12,
-        alt: "bitcoin",
-        img: bitcoin,
+        alt: "ir",
+        img: ir,
         section: "Introduction",
         link: "https://youtube.com/you-eat",
         currentVideo: "Tutor introduction",
@@ -103,8 +103,8 @@ export const course = [
     id: 1,
     title: "Elevation sequence in Bit-coin",
     duration: 2,
-    alt: "bitcoin",
-    img: bitcoin,
+    alt: "ir",
+    img: ir,
     author: {
       name: "Max Millan",
       biography:
@@ -116,8 +116,8 @@ export const course = [
         id: 0,
         title: "Business Management in Cryptocurrency",
         duration: 12,
-        alt: "bitcoin",
-        img: bitcoin,
+        alt: "ir",
+        img: ir,
         section: "Introduction",
         link: "https://youtube.com/you-eat",
         currentVideo: "Tutor introduction",

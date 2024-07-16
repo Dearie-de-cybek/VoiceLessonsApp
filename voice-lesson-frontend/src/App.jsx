@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 
 import GlobalStyles from "./styles/GlobalStyles";
 import Dashboard from "./pages/Dashboard";
+import Courses from "./pages/Courses";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { DarkModeProvider } from "./context/DarkModeContext";
@@ -31,6 +32,7 @@ function App() {
             <Route element={<AppLayout />}>
               <Route index element={<Navigate replace to="dashboard" />} />
               <Route path="dashboard" element={<Dashboard />} />
+              <Route path="courses" element={<Courses />} />
             </Route>
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
