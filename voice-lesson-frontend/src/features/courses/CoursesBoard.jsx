@@ -6,7 +6,7 @@ const StyledCourses = styled.div`
   background-color: transparent;
 
   @media (max-width: 900px) {
-    background-color: var(--color-white);
+    background-color: var(--color-brand-100);
   }
 `;
 

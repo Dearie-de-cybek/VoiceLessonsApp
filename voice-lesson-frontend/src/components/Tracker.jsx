@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const Track = styled.span`
   width: 100%;
   display: inline-block;
-  background-color: var(--color-pink-200);
+  background-color: var(--color-brand-200);
   height: ${({ height }) => (height ? `${height}px` : "2px")};
 
   position: relative;
@@ -16,7 +16,7 @@ const Track = styled.span`
     top: 0;
     left: 0;
     height: 100%;
-    background-color: var(--color-purple-100);
+    background-color: var(--color-brand-500);
     width: ${({ currtrack }) => (currtrack ? `${currtrack}%` : "25%")};
   }
 `;

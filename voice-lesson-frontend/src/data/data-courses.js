@@ -1,6 +1,6 @@
-import mh from "../../public/mh.png";
+import mh from "../../public/mhtest.png";
 import authorImg from "../../public/avatar-1.png";
-import ir from "../../public/ir.png";
+import ir from "../../public/irtest.png";
 
 export const courses = [
   {

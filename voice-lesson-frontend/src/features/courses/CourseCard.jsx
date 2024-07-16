@@ -69,7 +69,7 @@ CoursesCard.propTypes = {
     alt: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     tutor: PropTypes.string.isRequired,
-    completionRate: PropTypes.number.isRequired, // Adjust the type if needed
+    completionRate: PropTypes.number.isRequired, 
   }).isRequired,
 };
 
