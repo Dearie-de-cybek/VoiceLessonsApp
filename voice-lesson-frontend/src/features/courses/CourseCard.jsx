@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Tracker from "../../components/Tracker";
 import { useNavigate } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 const Card = styled.div`
   background-color: var(--color-white);
@@ -60,5 +61,16 @@ function CoursesCard({ course }) {
     </Card>
   );
 }
+
+CoursesCard.propTypes = {
+  course: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    img: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    tutor: PropTypes.string.isRequired,
+    completionRate: PropTypes.number.isRequired, // Adjust the type if needed
+  }).isRequired,
+};
 
 export default CoursesCard;
