@@ -70,12 +70,6 @@ function MainNav() {
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/users">
-            <HiOutlineUsers />
-            <span>User Profile</span>
-          </StyledNavLink>
-        </li>
-        <li>
           <StyledNavLink to="/quiz">
           <MdOutlineQuiz />
           <span>Quiz</span>
@@ -85,6 +79,12 @@ function MainNav() {
           <StyledNavLink to="/assignments">
           <MdOutlineAssignment />
           <span>Assignments</span>
+          </StyledNavLink>
+        </li>
+        <li>
+          <StyledNavLink to="/users">
+            <HiOutlineUsers />
+            <span>User Profile</span>
           </StyledNavLink>
         </li>
       </NavList>

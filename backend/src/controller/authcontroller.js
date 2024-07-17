@@ -76,14 +76,21 @@ const login = async (req, res) => {
       expiresIn: "1h",
     });
 
-    // req.session.user = user;
-    res.status(200).json({ message: "Login successful", token, user: user });
     // Set up a session with user information
-    // res.redirect("/dashboard");
+    const userData = req.session.user = user;
+    res.status(200).json({ message: "Login successful", token, user: userData });
   } catch (error) {
     res
       .status(500)
       .json({ error: "Internal server error", details: error.message });
+  }
+};
+
+const dashboard = async (req, res) => {
+  if (req.session.user) {
+    res.json(req.session.user);
+  } else {
+    res.status(401).json({ message: 'User not logged in' });
   }
 };
 
@@ -145,4 +152,4 @@ const updateProfile = async (req, res) => {
   }
 };
 
-module.exports = { register, login, updateProfile };
+module.exports = { register, login, updateProfile, dashboard };

@@ -16,8 +16,11 @@ function LoginForm() {
     axios.post('http://localhost:8080/api/auth/api/login', {
       email, password
     })
-    .then(result => {if(result.data) {
+    .then(result => {if(result.data.user) {
+      // Save user details to localStorage
+      localStorage.setItem('user', JSON.stringify(result.data.user));
       navigate('/dashboard')
+      
     }
     })
     .catch(err => console.log(err))
