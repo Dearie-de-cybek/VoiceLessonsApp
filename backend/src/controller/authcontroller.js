@@ -11,12 +11,10 @@ const register = async (req, res) => {
   }
 
   if (password !== confirmpassword) {
-    return res
-      .status(400)
-      .json({
-        statusCode: 400,
-        message: "Passwords do not match",
-      });
+    return res.status(400).json({
+      statusCode: 400,
+      message: "Passwords do not match",
+    });
   }
 
   try {
@@ -60,7 +58,6 @@ const login = async (req, res) => {
       return res.status(401).json({
         errorStatus: true,
         statusCode: 401,
-        code: "--api/auth-error",
         message: "Invalid email ",
       });
     }
@@ -71,7 +68,6 @@ const login = async (req, res) => {
       return res.status(401).json({
         errorStatus: true,
         statusCode: 401,
-        code: "--api/auth-error",
         message: "Invalid password",
       });
     }
@@ -80,7 +76,10 @@ const login = async (req, res) => {
       expiresIn: "1h",
     });
 
-    res.status(200).json({ message: "Login successful", token });
+    // req.session.user = user;
+    res.status(200).json({ message: "Login successful", token, user: user });
+    // Set up a session with user information
+    // res.redirect("/dashboard");
   } catch (error) {
     res
       .status(500)
@@ -100,12 +99,10 @@ const updateProfile = async (req, res) => {
   }
 
   if (password !== confirmpassword) {
-    return res
-      .status(400)
-      .json({
-        statusCode: 400,
-        message: "Passwords do not match",
-      });
+    return res.status(400).json({
+      statusCode: 400,
+      message: "Passwords do not match",
+    });
   }
 
   try {

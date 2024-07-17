@@ -1,4 +1,5 @@
 const express = require("express");
+const session = require("express-session");
 const cors = require("cors");
 const env = require("./config/env.js");
 const { requestLogger } = require("./middlewares/logger.js");
@@ -20,15 +21,31 @@ class App {
 
   initializeMiddlewares() {
     // initialize server middlewares
-    this.app.use(requestLogger);
+
+    // Set up session middleware
     this.app.use(
-      cors({
-        origin: ["http://127.0.0.1:3000", "http://localhost:3000", "*"],
-        credentials: true,
+      session({
+        secret: "your-secret-key", // Replace with your secret key
+        resave: false,
+        saveUninitialized: true,
+        cookie: { secure: false }, // Set secure to true if using HTTPS
       })
     );
+
+    this.app.use(requestLogger);
+    this.app.use(cors());
     this.app.use(bodyParser.json());
-    this.app.use(bodyParser.urlencoded({ extended: true }));  }
+    this.app.use(bodyParser.urlencoded({ extended: true }));
+  }
+
+  listen() {
+    // initialize database
+    this.initDB();
+    // listen on server port
+    this.app.listen(this.port, () => {
+      logger.info("Server started at http://localhost:" + this.port);
+    });
+  }
 
   listen() {
     // initialize database
