@@ -9,6 +9,7 @@ import CourseModules from "./CourseModules";
 // FOR TESTS
 import { course } from "../../data/data-courses";
 import { courseModels } from "../../data/courseModels";
+import "../../index.css";
 
 const Row = styled.div`
   display: flex;

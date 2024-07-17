@@ -1,7 +1,9 @@
+import PropTypes from 'prop-types';
 import { HiOutlineCheckCircle, HiOutlinePlayCircle } from "react-icons/hi2";
 import styled from "styled-components";
+import "../../index.css";
 
-const StyledVideo = styled.div`
+const StyledAudio = styled.div`
   transition: color var(--general-timing) ease,
     background-color var(--general-timing) ease;
 
@@ -19,25 +21,36 @@ const StyledVideo = styled.div`
   }
 `;
 
-function CourseVideo({ video, onClick, active }) {
+function CourseAudio({ Audio, onClick, active }) {
   return (
-    <StyledVideo
+    <StyledAudio
       className="flex items-center justify-between gap-4 px-4 py-2 mb-2 cursor-pointer rounded-lg"
-      status={video.status}
-      onClick={() => onClick(video.id)}
+      status={Audio.status}
+      onClick={() => onClick(Audio.id)}
       active={active}
     >
       <>
-        {video.status === "completed" ? (
+        {Audio.status === "completed" ? (
           <HiOutlineCheckCircle />
         ) : (
           <HiOutlinePlayCircle />
         )}
       </>
-      <span className="mr-auto">{video.title}</span>
-      <span>{video.duration}</span>
-    </StyledVideo>
+      <span className="mr-auto">{Audio.title}</span>
+      <span>{Audio.duration}</span>
+    </StyledAudio>
   );
 }
 
-export default CourseVideo;
+CourseAudio.propTypes = {
+  Audio: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    duration: PropTypes.string.isRequired,
+  }).isRequired,
+  onClick: PropTypes.func.isRequired,
+  active: PropTypes.bool,
+};
+
+export default CourseAudio;

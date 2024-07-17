@@ -1,7 +1,8 @@
 import { createPortal } from "react-dom";
 import styled from "styled-components";
-import CourseVideo from "./CourseVideo";
+import CourseAudio from "./CourseAudio";
 import { useState } from "react";
+import "../../index.css";
 
 const StyledCourseModel = styled.span`
   color: var(--color-ash-800);
@@ -16,10 +17,10 @@ const StyledCourseModel = styled.span`
 `;
 
 function CourseModules({ courseModels }) {
-  const [currVideo, setCurrVideo] = useState();
+  const [currAudio, setCurrAudio] = useState();
 
-  function handleCurrVideo(index) {
-    setCurrVideo(index);
+  function handleCurrAudio(index) {
+    setCurrAudio(index);
   }
 
   return createPortal(
@@ -33,12 +34,12 @@ function CourseModules({ courseModels }) {
             </span>
 
             <div className="flex flex-col text-[1.4rem]">
-              {mod.videos.map((video) => (
-                <CourseVideo
-                  key={video.id}
-                  video={video}
-                  onClick={handleCurrVideo}
-                  active={video.id === currVideo}
+              {mod.Audios.map((Audio) => (
+                <CourseAudio
+                  key={Audio.id}
+                  Audio={Audio}
+                  onClick={handleCurrAudio}
+                  active={Audio.id === currAudio}
                 />
               ))}
             </div>
