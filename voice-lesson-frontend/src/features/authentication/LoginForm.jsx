@@ -5,14 +5,11 @@ import Input from "../../ui/Input";
 import FormRowVertical from "../../ui/FormRowVertical";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-// import { useLogin } from "./useLogin";
-// import SpinnerMini from "../../ui/SpinnerMini";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  // const { login, isLoading } = useLogin();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -24,19 +21,6 @@ function LoginForm() {
     }
     })
     .catch(err => console.log(err))
-    // if (!email || !password){
-    //   console.error('Please fill in both fields');
-    //   return;
-    // } 
-    // login(
-    //   { email, password },
-    //   {
-    //     onSettled: () => {
-    //       setEmail("");
-    //       setPassword("");
-    //     },
-    //   }
-    // );
   }
 
   return (
