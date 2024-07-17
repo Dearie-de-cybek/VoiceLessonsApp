@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import CoursesCard from "./CourseCard";
 import PropTypes from 'prop-types';
+import "../../index.css";
 
 const StyledCourses = styled.div`
   background-color: transparent;

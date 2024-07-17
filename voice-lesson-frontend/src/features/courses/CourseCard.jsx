@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Tracker from "../../components/Tracker";
 import { useNavigate } from "react-router-dom";
 import PropTypes from 'prop-types';
+import "../../index.css";
 
 const Card = styled.div`
   background-color: var(--color-brand-50);

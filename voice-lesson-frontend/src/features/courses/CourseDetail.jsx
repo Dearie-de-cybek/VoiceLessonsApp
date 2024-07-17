@@ -4,11 +4,12 @@ import {
     HiOutlinePlay,
     HiOutlineStar,
   } from "react-icons/hi2";
-  import Text from "../../components/Text";
+  import Text from "../../ui/Text";
   import styled from "styled-components";
   import Button from "../../ui/Button";
   import { useNavigate, useParams } from "react-router-dom";
-  import { course as courseData } from "../data/data-courses";
+  import { course as courseData } from "../../data/data-courses";
+  import "../../index.css";
   
   const Row = styled.div`
     display: flex;
@@ -43,7 +44,7 @@ import {
     const navigate = useNavigate();
     const { courseId } = useParams();
   
-    // FOR TESTING PURPOSE
+   
     const course = courseData[courseId];
   
     return (
