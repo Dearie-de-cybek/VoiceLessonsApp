@@ -1,16 +1,14 @@
-import { useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
 import { HiOutlineClock, HiOutlineStar } from "react-icons/hi2";
 
 import Text from "../../ui/Text";
-import Button from "../../ui/Button";
 import CourseModules from "./CourseModules";
 
 // FOR TESTS
 import { course } from "../../data/data-courses";
-import { courseModels } from "../../data/testsdata/courseModels";
+import { courseModels } from "../../data/courseModels";
 
 const Row = styled.div`
   display: flex;
@@ -26,7 +24,6 @@ const Icon = styled.span`
 `;
 
 function CourseOutline() {
-  const [isRate, setIsRate] = useState();
   const { courseId } = useParams();
 
   // FOR TESTING PURPOSE
@@ -59,24 +56,9 @@ function CourseOutline() {
             <Text size="small">{video.rating} rating</Text>
           </Row>
 
-          <Row className="w-max h-[2rem] lg:w-[10rem]">
-            {isRate ? (
-              <StarRating size={20}>
-                <StarRating.Stars />
-              </StarRating>
-            ) : (
-              <Button
-                onClick={() => setIsRate(true)}
-                variation="underline"
-                size="small"
-              >
-                Rate this course
-              </Button>
-            )}
-          </Row>
+          
         </Row>
       </div>
-      <Note />
       <CourseModules courseModels={courseModels[0]} />
     </div>
   );
