@@ -1,13 +1,12 @@
-import Heading from "../ui/Heading";
-import Row from "../ui/Row";
+import { courses } from "../data/data-courses";
+import CoursesBoard from "../features/courses/CoursesBoard";
 
-function Cabins() {
+function Courses() {
   return (
-    <Row type="horizontal">
-      <Heading as="h1">All Courses</Heading>
-      <p>TEST</p>
-    </Row>
+    <div>
+      <CoursesBoard courses={courses} />
+    </div>
   );
 }
 
-export default Cabins;
+export default Courses;

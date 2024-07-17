@@ -9,10 +9,6 @@ const StyledDashboardLayout = styled.div`
 `;
 
 function DashboardLayout() {
- 
-
-  
-
   return (
     <StyledDashboardLayout>
       

@@ -5,9 +5,11 @@ import { Toaster } from "react-hot-toast";
 
 import GlobalStyles from "./styles/GlobalStyles";
 import Dashboard from "./pages/Dashboard";
+import Courses from "./pages/Courses";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { DarkModeProvider } from "./context/DarkModeContext";
+import AppLayout from "./ui/AppLayout";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -27,8 +29,11 @@ function App() {
         <GlobalStyles />
         <BrowserRouter>
           <Routes>
-            <Route index element={<Navigate replace to="dashboard" />} />
-            <Route path="dashboard" element={<Dashboard />} />
+            <Route element={<AppLayout />}>
+              <Route index element={<Navigate replace to="dashboard" />} />
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="courses" element={<Courses />} />
+            </Route>
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
           </Routes>
