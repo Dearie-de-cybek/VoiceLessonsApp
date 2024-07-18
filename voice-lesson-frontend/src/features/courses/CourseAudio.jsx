@@ -41,6 +41,7 @@ function CourseAudio({ audio, onClick, active }) {
     </StyledAudio>
   );
 }
+ // TODO: #15 Design is totally broken move this to the side and create room for responsiveness
 
 CourseAudio.propTypes = {
   audio: PropTypes.shape({
