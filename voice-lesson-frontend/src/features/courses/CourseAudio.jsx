@@ -5,45 +5,45 @@ import "../../index.css";
 
 const StyledAudio = styled.div`
   transition: color var(--general-timing) ease,
-    background-color var(--general-timing) ease;
+  background-color var(--general-timing) ease;
 
   color: ${({ status }) =>
     status === "completed"
-      ? "var(--color-green-500)"
-      : "var(--color-purple-200)"};
+      ? "var(--color-green-700)"
+      : "var(--color-indigo-700)"};
 
-  color: ${({ active }) => active && "var(--color-white)"};
-  background-color: ${({ active }) => active && "var(--color-purple-300)"};
+  color: ${({ active }) => active && "var(--color-grey-50)"};
+  background-color: ${({ active }) => active && "var(--color-indigo-100)"};
 
   &:hover {
-    color: ${({ active }) => !active && "var(--color-white)"};
-    background-color: ${({ active }) => !active && "var(--color-purple-200)"};
+    color: ${({ active }) => !active && "var(--color-grey-50)"};
+    background-color: ${({ active }) => !active && "var(--color-indigo-700)"};
   }
 `;
 
-function CourseAudio({ Audio, onClick, active }) {
+function CourseAudio({ audio, onClick, active }) {
   return (
     <StyledAudio
       className="flex items-center justify-between gap-4 px-4 py-2 mb-2 cursor-pointer rounded-lg"
-      status={Audio.status}
-      onClick={() => onClick(Audio.id)}
+      status={audio.status}
+      onClick={() => onClick(audio.id)}
       active={active}
     >
       <>
-        {Audio.status === "completed" ? (
+        {audio.status === "completed" ? (
           <HiOutlineCheckCircle />
         ) : (
           <HiOutlinePlayCircle />
         )}
       </>
-      <span className="mr-auto">{Audio.title}</span>
-      <span>{Audio.duration}</span>
+      <span className="mr-auto">{audio.title}</span>
+      <span>{audio.duration}</span>
     </StyledAudio>
   );
 }
 
 CourseAudio.propTypes = {
-  Audio: PropTypes.shape({
+  audio: PropTypes.shape({
     id: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
