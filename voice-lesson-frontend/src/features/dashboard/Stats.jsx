@@ -1,9 +1,7 @@
 import {
-    HiOutlineBanknotes,
-    HiOutlineBriefcase,
     HiOutlineCalendarDays,
-    HiOutlineChartBar,
   } from "react-icons/hi2";
+  import { MdOutlineOndemandVideo } from "react-icons/md";
   import Stat from "./Stat";
   
   function Stats() {
@@ -11,28 +9,16 @@ import {
     return (
       <>
         <Stat
-          title="Bookings"
+          title="Courses"
           color="blue"
-          icon={<HiOutlineBriefcase />}
+          icon={<MdOutlineOndemandVideo />}
           value={10}
         />
         <Stat
-          title="Sales"
-          color="green"
-          icon={<HiOutlineBanknotes />}
-          value={30}
-        />
-        <Stat
-          title="Check ins"
+          title="Assignments"
           color="indigo"
           icon={<HiOutlineCalendarDays />}
-          value={'logs'}
-        />
-        <Stat
-          title="Occupancy rate"
-          color="yellow"
-          icon={<HiOutlineChartBar />}
-          value={"%"}
+          value={'2 Done'}
         />
       </>
     );

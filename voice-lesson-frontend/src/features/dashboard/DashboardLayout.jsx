@@ -10,19 +10,17 @@ const StyledDashboardLayout = styled.div`
 `;
 
 function DashboardLayout() {
-  const { bookings, isLoading: isLoading1 } = '';
-  const { confirmedStays, isLoading: isLoading2, numDays } = '';
-  const { cabins, isLoading: isLoading3 } = '';
+  const { courses, isLoading: isLoading1 } = '';
+  const { assignments, isLoading: isLoading2, numDays } = '';
 
-  if (isLoading1 || isLoading2 || isLoading3) return <Spinner />;
+  if (isLoading1 || isLoading2 ) return <Spinner />;
 
   return (
     <StyledDashboardLayout>
       <Stats
-        bookings={bookings}
-        confirmedStays={confirmedStays}
+        courses={courses}
+        assignments={assignments}
         numDays={numDays}
-        cabinCount={cabins}
       />
     </StyledDashboardLayout>
   );
