@@ -6,12 +6,32 @@ import {
   HiOutlineUsers,
 } from "react-icons/hi2";
 import { MdOutlineQuiz, MdOutlineAssignment } from "react-icons/md";
+import "../../index.css";
 
+const NavContainer = styled.nav`
+  @media (max-width: 640px) {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0.5rem;
+    margin-top: 8rem;
+    gap: 0.5rem;
+  }
+`;
 
 const NavList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-width: 640px) {
+    width: 100%;
+    overflow-x: scroll;
+    flex-direction: row;
+  }
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -50,45 +70,73 @@ const StyledNavLink = styled(NavLink)`
   &.active:link svg,
   &.active:visited svg {
     color: var(--color-brand-600);
+
+    @media (max-width: 640px) {
+      text-decoration: underline;
+      text-underline-offset: 10px;
+      background-color: transparent;
+    }
+  }
+
+  @media (max-width: 640px) {
+    font-size: 1.4rem;
+    padding: 0.8rem 1.6rem;
+    gap: 0.8rem;
+  }
+`;
+
+const Icons = styled.span`
+  @media (max-width: 640px) {
+    display: none;
   }
 `;
 
 function MainNav() {
   return (
-    <nav>
+    <NavContainer>
       <NavList>
         <li>
           <StyledNavLink to="/dashboard">
-            <HiOutlineHome />
+            <Icons>
+              <HiOutlineHome />
+            </Icons>
             <span>Home</span>
           </StyledNavLink>
         </li>
         <li>
           <StyledNavLink to="/courses">
-            <HiOutlineCalendarDays />
+            <Icons>
+              <HiOutlineCalendarDays />
+            </Icons>
             <span>Courses</span>
           </StyledNavLink>
         </li>
         <li>
           <StyledNavLink to="/users">
-            <HiOutlineUsers />
+            <Icons>
+              <HiOutlineUsers />
+            </Icons>
             <span>User Profile</span>
           </StyledNavLink>
         </li>
         <li>
           <StyledNavLink to="/quiz">
-          <MdOutlineQuiz />
-          <span>Quiz</span>
+            <Icons>
+              <MdOutlineQuiz />
+            </Icons>
+            <span>Quiz</span>
           </StyledNavLink>
         </li>
         <li>
           <StyledNavLink to="/assignments">
-          <MdOutlineAssignment />
-          <span>Assignments</span>
+            <Icons>
+              <MdOutlineAssignment />
+            </Icons>
+            <span>Assignments</span>
           </StyledNavLink>
         </li>
       </NavList>
-    </nav>
+    </NavContainer>
   );
 }
 
