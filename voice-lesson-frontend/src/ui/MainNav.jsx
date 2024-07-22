@@ -5,6 +5,8 @@ import {
   HiOutlineHome,
   HiOutlineUsers,
 } from "react-icons/hi2";
+import { MdOutlineQuiz, MdOutlineAssignment } from "react-icons/md";
+
 
 const NavList = styled.ul`
   display: flex;
@@ -71,6 +73,18 @@ function MainNav() {
           <StyledNavLink to="/users">
             <HiOutlineUsers />
             <span>User Profile</span>
+          </StyledNavLink>
+        </li>
+        <li>
+          <StyledNavLink to="/quiz">
+          <MdOutlineQuiz />
+          <span>Quiz</span>
+          </StyledNavLink>
+        </li>
+        <li>
+          <StyledNavLink to="/assignments">
+          <MdOutlineAssignment />
+          <span>Assignments</span>
           </StyledNavLink>
         </li>
       </NavList>

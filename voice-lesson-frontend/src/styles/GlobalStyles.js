@@ -25,6 +25,10 @@ const GlobalStyles = createGlobalStyle`
   --color-grey-800: #1f2937;
   --color-grey-900: #111827;
 
+  --color-ash-600: rgba(18, 18, 18, .6);
+  --color-ash-300: rgba(18, 18, 18, .3);
+  --color-ash-800: rgba(18, 18, 18, .8);
+
   --color-blue-100: #e0f2fe;
   --color-blue-700: #0369a1;
   --color-green-100: #dcfce7;
@@ -54,6 +58,8 @@ const GlobalStyles = createGlobalStyle`
   /* For dark mode */
   --image-grayscale: 0;
   --image-opacity: 100%;
+
+  --general-timing: 100ms;
 }
 
 *,

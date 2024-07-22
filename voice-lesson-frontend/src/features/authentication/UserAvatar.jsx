@@ -20,4 +20,18 @@ const Avatar = styled.img`
   outline: 2px solid var(--color-grey-100);
 `;
 
-export default { StyledUserAvatar, Avatar}
+function UserAvatar() {
+
+  return (
+    <StyledUserAvatar>
+      <Avatar
+        src={"default-user.jpg"}
+        alt={`Avatar `}
+      />
+      <span>FullName</span>
+    </StyledUserAvatar>
+  );
+}
+
+
+export default UserAvatar;
