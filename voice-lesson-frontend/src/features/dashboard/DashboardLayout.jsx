@@ -4,9 +4,6 @@ import Stats from "./Stats";
 
 const StyledDashboardLayout = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto 34rem auto;
-  gap: 2.4rem;
 `;
 
 function DashboardLayout() {
@@ -17,7 +14,7 @@ function DashboardLayout() {
 
   return (
     <div className="grid gap-8">
-    <StyledDashboardLayout>
+    <StyledDashboardLayout className="grid-cols-1 lg:grid-cols-[1.5fr,1fr] gap-8">
       <Stats
         courses={courses}
         assignments={assignments}

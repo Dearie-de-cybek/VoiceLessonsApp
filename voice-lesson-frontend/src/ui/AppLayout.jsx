@@ -26,15 +26,22 @@ const Container = styled.div`
 
 function AppLayout() {
   return (
+    <div
+      className="grid grid-cols-1 md:grid-cols-[auto,1fr,auto] grid-rows-1fr h-max md:h-screen overflow-y-hidden"
+      style={{ backgroundColor: "var(--color-white)" }}
+    >
     <StyledAppLayout>
       {/* <Header /> */}
       <Sidebar />
-      <Main>
+      <Main className="md:overflow-x-auto md:h-screen [&::-webkit-scrollbar]:hidden md:p-8 lg:p-12 lg:pt-0 relative flex flex-col">
         <Container>
+        <div className="w-full h-max md:px-1">
           <Outlet />
+        </div>
         </Container>
       </Main>
     </StyledAppLayout>
+    </div>
   );
 }
 

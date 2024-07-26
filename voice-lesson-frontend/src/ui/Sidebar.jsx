@@ -4,19 +4,21 @@ import MainNav from "./MainNav";
 
 const StyledSidebar = styled.aside`
   background-color: var(--color-grey-0);
-  padding: 3.2rem 2.4rem;
-  border-right: 1px solid var(--color-grey-100);
 
-  grid-row: 1 / -1;
-  display: flex;
-  flex-direction: column;
-  gap: 3.2rem;
+`;
+
+const LogoContainer = styled.div`
+  @media (max-width: 640px) {
+    background-color: var(--color-offwhite-400);
+  }
 `;
 
 function Sidebar() {
   return (
-    <StyledSidebar>
-      <Logo />
+    <StyledSidebar className="overflow-hidden p-0 md:px-[1.8rem] md:py-[3.2rem] row-span-full flex flex-col gap-20 md:gap-16 w-full">
+      <LogoContainer className="absolute sm:static p-8 sm:p-0 w-full flex items-start">
+        <Logo />
+      </LogoContainer>
       <MainNav />
     </StyledSidebar>
   );
