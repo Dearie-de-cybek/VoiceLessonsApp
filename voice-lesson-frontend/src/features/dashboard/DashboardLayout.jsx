@@ -16,6 +16,7 @@ function DashboardLayout() {
   if (isLoading1 || isLoading2 ) return <Spinner />;
 
   return (
+    <div className="grid gap-8">
     <StyledDashboardLayout>
       <Stats
         courses={courses}
@@ -23,6 +24,7 @@ function DashboardLayout() {
         numDays={numDays}
       />
     </StyledDashboardLayout>
+    </div>
   );
 }
 

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import logo from "../../public/mh.png";
+import "../index.css"
 
 const StyledLogo = styled.div`
   text-align: center;
@@ -15,10 +16,15 @@ const Img = styled.img`
 
 function Logo() {
   return (
-    <StyledLogo>
+    <StyledLogo className=" w-48 md:w-max">
       <Img src={logo} alt="Logo" />
     </StyledLogo>
   );
 }
+
+Logo.defaultProps = {
+  alt: "purple",
+  type: "purple",
+};
 
 export default Logo;

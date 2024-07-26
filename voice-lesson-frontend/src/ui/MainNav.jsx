@@ -6,7 +6,7 @@ import {
   HiOutlineUsers,
 } from "react-icons/hi2";
 import { MdOutlineQuiz, MdOutlineAssignment } from "react-icons/md";
-import "../../index.css";
+import "../index.css";
 
 const NavContainer = styled.nav`
   @media (max-width: 640px) {
@@ -41,35 +41,27 @@ const StyledNavLink = styled(NavLink)`
     align-items: center;
     gap: 1.2rem;
 
-    color: var(--color-grey-600);
+    color: var(--color-ash-700);
     font-size: 1.6rem;
-    font-weight: 500;
-    padding: 1.2rem 2.4rem;
+    font-weight: 600;
+    padding: 1rem;
     transition: all 0.3s;
+    white-space: nowrap;
+
+    @media (max-width: 640px) {
+      font-size: 1.4rem;
+      padding: 0.8rem 1.6rem;
+      gap: 0.8rem;
+    }
   }
 
-  /* This works because react-router places the active class on the active NavLink */
   &:hover,
   &:active,
   &.active:link,
   &.active:visited {
-    color: var(--color-grey-800);
-    background-color: var(--color-grey-50);
+    color: var(--color-purple-200);
+    background-color: var(--color-pink-200);
     border-radius: var(--border-radius-sm);
-  }
-
-  & svg {
-    width: 2.4rem;
-    height: 2.4rem;
-    color: var(--color-grey-400);
-    transition: all 0.3s;
-  }
-
-  &:hover svg,
-  &:active svg,
-  &.active:link svg,
-  &.active:visited svg {
-    color: var(--color-brand-600);
 
     @media (max-width: 640px) {
       text-decoration: underline;
@@ -78,10 +70,18 @@ const StyledNavLink = styled(NavLink)`
     }
   }
 
-  @media (max-width: 640px) {
-    font-size: 1.4rem;
-    padding: 0.8rem 1.6rem;
-    gap: 0.8rem;
+  & svg {
+    width: 2.4rem;
+    height: 2.4rem;
+    color: var(--color-ash-700);
+    transition: all 0.3s;
+  }
+
+  &:hover svg,
+  &:active svg,
+  &.active:link svg,
+  &.active:visited svg {
+    color: var(--color-purple-200);
   }
 `;
 
