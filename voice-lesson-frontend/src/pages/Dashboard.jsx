@@ -32,6 +32,12 @@ function Dashboard() {
           <p>
             <strong>Phone:</strong> {user.phone}
           </p>
+          <p>
+            <strong>Coin:</strong> {user.coin}
+          </p>
+          <p>
+            <strong>Score:</strong> {user.score}
+          </p>
         </div>
       <DashboardLayout />
     </>

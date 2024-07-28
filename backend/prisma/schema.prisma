@@ -31,6 +31,9 @@ model User {
     coin             String        @default("0")
     score            String        @default("0")
     account_type     String        @default("user")
+    createdAt        DateTime      @default(now())
+    updatedAt        DateTime      @updatedAt
+
     assignment_answer              Assignment_Answer[]
     quiz_answer                    Quiz_Answer[]
 }
@@ -39,9 +42,12 @@ model Course {
     id               Int           @id @default(autoincrement())
     title            String
     description      String
-    audio            String
-    video            String
-    content          String
+    audio            String?
+    video            String?
+    content          String?
+    createdAt        DateTime      @default(now())
+    updatedAt        DateTime      @updatedAt
+
     assignment                     Assignment[]
     quiz                           Quiz[]
 }
@@ -50,6 +56,9 @@ model Assignment {
     id               Int           @id @default(autoincrement())
     courseId         Int
     question         String
+    createdAt        DateTime      @default(now())
+    updatedAt        DateTime      @updatedAt
+
     course           Course        @relation(fields: [courseId], references: [id])
     assignment_answer              Assignment_Answer[]
 }
@@ -61,6 +70,9 @@ model Assignment_Answer {
     answer           String
     file             String
     feedback         String
+    createdAt        DateTime      @default(now())
+    updatedAt        DateTime      @updatedAt
+
     user             User          @relation(fields: [userId], references: [id])
     assignment       Assignment    @relation(fields: [assignmentId], references: [id])
 }
@@ -69,6 +81,9 @@ model Quiz {
     id               Int           @id @default(autoincrement())
     courseId         Int
     quiz             String
+    createdAt        DateTime      @default(now())
+    updatedAt        DateTime      @updatedAt
+
     course           Course        @relation(fields: [courseId], references: [id])
     quiz_option                    Quiz_Option[]
     quiz_answer                    Quiz_Answer[]
@@ -79,6 +94,9 @@ model Quiz_Option {
     quizId           Int
     option           String
     status           String
+    createdAt        DateTime      @default(now())
+    updatedAt        DateTime      @updatedAt
+
     quiz             Quiz        @relation(fields: [quizId], references: [id])
     quiz_answer                  Quiz_Answer[]
 }
@@ -88,9 +106,10 @@ model Quiz_Answer {
     userId           Int
     quizId           Int
     quiz_optionId    Int
+    createdAt        DateTime      @default(now())
+    updatedAt        DateTime      @updatedAt
+
     user             User          @relation(fields: [userId], references: [id])
     quiz             Quiz          @relation(fields: [quizId], references: [id])
-    quiz_option      Quiz_Option   @relation(fields: [quiz_optionId], references: [id])
-        
+    quiz_option      Quiz_Option   @relation(fields: [quiz_optionId], references: [id])     
 }
-
